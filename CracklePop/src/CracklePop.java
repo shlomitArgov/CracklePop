@@ -15,23 +15,27 @@ public class CracklePop {
 	 */
 	public static void main(String[] args) {
 
-		for (int i = 1; i <= MAX_NUM; i++) {
-			if ((i % 3) == 0) 
-			{
-				System.out.print(CRACKLE);
-				if ((i % 5) == 0) 
-				{
-					System.out.println(POP);
-				} else {
-					System.out.println();
-				}
-			} else if ((i % 5) == 0) 
-			{
-				System.out.println(POP);
-			} else 
+		for (int i = 1; i <= MAX_NUM; i++) 
+		{
+			//Check the most common case first, make use of short-circuiting to avoid extra checks
+			if ((i % 3) != 0 && (i % 5) != 0 ) 
 			{
 				System.out.println(i);
 			}
+			else
+				if((i % 3) == 0)
+				{
+					System.out.print(CRACKLE);
+					if ((i % 5) == 0) 
+					{
+						System.out.println(POP);
+					} else {
+						System.out.println();
+					}
+				} else if ((i % 5) == 0) 
+			{
+				System.out.println(POP);
+			} 
 		}
 	}
 }
